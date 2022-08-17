@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
+import Main from './pages/Main';
 
-function App() {
+const getProducts = async () => {
+  
+}
+
+const App = () => {
   return (
-    <h1>Hello World</h1>
-  );
+    <Main />
+  )
 }
 
 export default App;
