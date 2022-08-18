@@ -1,5 +1,5 @@
 .nav {
-    height: 30px;
+    display: flex;
 }
 
 .nav-list {
@@ -9,7 +9,6 @@
     gap: 10px;
 }
 
-.nav-item {
-    list-style: none;
-    text-decoration: none;
+.nav-link {
+    color: black;
 }

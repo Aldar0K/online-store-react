@@ -1,5 +1,22 @@
+html {
+    font-size: 10px;
+}
+
 body {
-    background-color: aliceblue;
+    font-size: 1.4rem;
+    background-color: #f6f6f6;
+}
+
+h1 {
+    font-size: 2.8rem;
+}
+
+h2 {
+    font-size: 2.2rem;
+}
+
+h3 {
+    font-size: 2rem;
 }
 
 .modal-backdrop {
@@ -59,7 +76,7 @@ body {
     font-size: 30px;
     border: none;
     border-radius: 100%;
-    background-color: brown;
+    background-color: #fc8507;
     color: white;
 
     align-items: center;

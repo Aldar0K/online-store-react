@@ -14,7 +14,7 @@ const ProductsPage = () => {
 
     return (
         <>
-            <h1>Online Store</h1>
+            <h2>Products</h2>
             <ul className="products-container">
                 { loading && <Loader /> }
                 { error && <ErrorMessage error={error} /> }
