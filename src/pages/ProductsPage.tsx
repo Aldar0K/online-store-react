@@ -3,11 +3,14 @@ import ErrorMessage from '../components/ErrorMessage';
 import Product from "../components/Product";
 import useProducts from '../hooks/Products';
 import IProduct from "../interfaces/IProduct";
+import { useContext } from "react";
 import Modal from "../components/Modal";
 import CreateProduct from "../components/CreateProduct";
+import { ModalContext } from "../context/ModalContext";
 
-const Main = () => {
+const ProductsPage = () => {
     const { products, error, loading } = useProducts();
+    const { modal, openModal, closeModal } = useContext(ModalContext);
 
     return (
         <>
@@ -18,11 +21,21 @@ const Main = () => {
                 { products.map((product: IProduct) => <Product product={product} key={product.id}></Product>) }
             </ul>
 
-            <Modal title="Create new product">
-                <CreateProduct />
-            </Modal>
+            {modal && <Modal 
+                title="Create new product"
+                onClose={ closeModal }
+            >
+                <CreateProduct onCreate={ closeModal } />
+            </Modal>}
+
+            <button 
+                className="add-product-button"
+                onClick={ openModal }
+            >
+                +
+            </button>
         </>
     );
 }   
 
-export default Main;
+export default ProductsPage;

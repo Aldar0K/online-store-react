@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import getProducts from "../data/Products.DB";
 import IProduct from "../interfaces/IProduct";
 
-const useProducts = () => {
+const useProducts = (): { products: IProduct[], error: string, loading: boolean } => {
     const [products, setProducts] = useState<IProduct[]>([]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');

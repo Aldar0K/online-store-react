@@ -1,10 +1,16 @@
 import React, { useState } from "react";
 
-const CreateProduct = () => {
+interface ICreateProductProps {
+    onCreate: () => void
+}
+
+const CreateProduct = ({ onCreate }: ICreateProductProps) => {
     const [value, setValue] = useState('');
 
     const submitHandler = (e: React.FormEvent) => {
         e.preventDefault();
+
+        onCreate();
     }
 
     const changeHandlder = (e: React.ChangeEvent<HTMLInputElement>) => {

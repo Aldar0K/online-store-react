@@ -15,11 +15,11 @@ body {
 .modal-body {
     display: flex;
     position: absolute;
-    height: 300px;
+    height: 200px;
     width: 500px;
 
     left: calc(50% - 250px);
-    top: calc(50% - 150px);
+    top: calc(50% - 100px);
 
     flex-direction: column;
     justify-content: center;
@@ -43,5 +43,25 @@ body {
 }
 
 .create-button {
-    height: 33px;
+    width: 70px;
+    height: 36px;
+}
+
+.add-product-button {
+    display: flex;
+    position: fixed;
+    width: 45px;
+    height: 45px;
+
+    right: 30px;
+    bottom: 30px;
+
+    font-size: 30px;
+    border: none;
+    border-radius: 100%;
+    background-color: brown;
+    color: white;
+
+    align-items: center;
+    justify-content: center;
 }
