@@ -1,0 +1,15 @@
+.nav {
+    height: 30px;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.nav-item {
+    list-style: none;
+    text-decoration: none;
+}
