@@ -1,6 +1,17 @@
-const Modal = () => {
+interface IModalProps {
+    children: React.ReactNode;
+    title: string
+}
+
+const Modal = ({ children, title } : IModalProps) => {
     return (
-        <div></div>
+        <>
+            <div className="modal-backdrop" />
+            <div className="modal-body">
+                <h1>{ title }</h1>
+                { children }
+            </div>
+        </>
     )
 }
 
