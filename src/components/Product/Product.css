@@ -27,6 +27,12 @@
     color: #fc8507;
 }
 
+.product__buttons {
+    display: flex;
+
+    gap: 1.5rem;
+}
+
 @media (max-width: 900px) {
     .products__item {
         flex: 1 1 49%;

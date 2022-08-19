@@ -9,7 +9,7 @@ const Navigation = () => {
                     <Link className='nav-link' to='/About'><h2>About</h2></Link>
                 </li>
                 <li className="nav-item">
-                    <Link className='nav-link' to='/Products'><h2>Products</h2></Link>
+                    <Link className='nav-link' to='/'><h2>Products</h2></Link>
                 </li>
             </ul>
         </nav>
