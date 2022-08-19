@@ -1,3 +1,5 @@
+import './Modal.css';
+
 interface IModalProps {
     children: React.ReactNode;
     title: string;
@@ -6,13 +8,13 @@ interface IModalProps {
 
 const Modal = ({ children, title, onClose } : IModalProps) => {
     return (
-        <>
-            <div className="modal-backdrop" onClick={onClose} />
-            <div className="modal-body">
+        <div className='modal'>
+            <div className="modal__backdrop" onClick={onClose} />
+            <div className="modal__body">
                 <h1>{ title }</h1>
                 { children }
             </div>
-        </>
+        </div>
     )
 }
 

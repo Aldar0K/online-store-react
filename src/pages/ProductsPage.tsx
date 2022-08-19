@@ -4,7 +4,7 @@ import Product from "../components/Product";
 import useProducts from '../hooks/Products';
 import IProduct from "../interfaces/IProduct";
 import { useContext } from "react";
-import Modal from "../components/Modal";
+import Modal from "../components/Modal/Modal";
 import CreateProduct from "../components/CreateProduct";
 import { ModalContext } from "../context/ModalContext";
 
@@ -22,7 +22,8 @@ const ProductsPage = () => {
                     { products.map((product: IProduct) => <Product product={product} key={product.id}></Product>) }
                 </ul>
 
-                {modal && <Modal 
+                {modal && 
+                <Modal 
                     title="Create new product"
                     onClose={ closeModal }
                 >

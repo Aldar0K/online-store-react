@@ -51,32 +51,6 @@ h3 {
 
 /* ===================== */
 
-.modal-backdrop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-body {
-    display: flex;
-    position: absolute;
-    height: 200px;
-    width: 500px;
-
-    left: calc(50% - 250px);
-    top: calc(50% - 100px);
-
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    background-color: white;
-}
-
 .create-form {
     display: flex;
     align-items: center;
@@ -99,17 +73,17 @@ h3 {
 .add-product-button {
     display: flex;
     position: fixed;
-    width: 45px;
-    height: 45px;
+    width: 4.5rem;
+    height: 4.5rem;
 
-    right: 30px;
-    bottom: 30px;
+    right: 3rem;
+    bottom: 3rem;
 
     font-size: 30px;
     border: none;
     border-radius: 100%;
-    background-color: #fc8507;
     color: white;
+    background-color: #fc8507;
 
     align-items: center;
     justify-content: center;
