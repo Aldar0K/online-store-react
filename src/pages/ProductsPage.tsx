@@ -1,6 +1,6 @@
 import Loader from "../components/Loader/Loader";
 import ErrorMessage from '../components/Error/ErrorMessage';
-import Product from "../components/Product";
+import Product from "../components/Product/Product";
 import useProducts from '../hooks/Products';
 import IProduct from "../interfaces/IProduct";
 import { useContext } from "react";
@@ -19,7 +19,9 @@ const ProductsPage = () => {
                 <ul className="products-container">
                     { loading && <Loader /> }
                     { error && <ErrorMessage error={error} /> }
-                    { products.map((product: IProduct) => <Product product={product} key={product.id}></Product>) }
+                    { products
+                        .map((product: IProduct) => 
+                        <Product product={product} key={product.id}></Product>) }
                 </ul>
 
                 {modal && 
