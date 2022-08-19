@@ -14,7 +14,7 @@ const Product = ({ product }: { product: IProduct }) => {
             <span>Камер: {product.cameras}</span>
             <span>Цена: {product.price}</span>
         </li>
-    )
+    );
 }
 
 export default Product;

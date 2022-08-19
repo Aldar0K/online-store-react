@@ -10,6 +10,7 @@ import { ModalContext } from "../context/ModalContext";
 import Header from "../components/Header/Header";
 import Navigation from "../components/Navigation/Navigation";
 import Footer from "../components/Footer/Footer";
+import Cart from "../components/Cart/Cart";
 
 const ProductsPage = () => {
     const { products, error, loading } = useProducts();
@@ -22,7 +23,7 @@ const ProductsPage = () => {
             </Header>
             <main className="main">
                 <div className="conteiner main__conteiner">
-                    <h2>Products</h2>
+                    <Cart amount={0} />
                     <div className="main__products products">
                         <ul className="products__items">
                             { loading && <Loader /> }

@@ -1,0 +1,19 @@
+.main__cart {
+    display: flex;
+    padding: 1em;
+
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+
+    background-color: white;
+}
+
+.main__cart img {
+    width: 6rem;
+}
+
+.main__cart span {
+    font-size: 4rem;
+    color: #fc8507;
+}
