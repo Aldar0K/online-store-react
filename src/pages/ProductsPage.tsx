@@ -13,28 +13,30 @@ const ProductsPage = () => {
     const { modal, openModal, closeModal } = useContext(ModalContext);
 
     return (
-        <>
-            <h2>Products</h2>
-            <ul className="products-container">
-                { loading && <Loader /> }
-                { error && <ErrorMessage error={error} /> }
-                { products.map((product: IProduct) => <Product product={product} key={product.id}></Product>) }
-            </ul>
+        <main className="main">
+            <div className="conteiner main__conteiner">
+                <h2>Products</h2>
+                <ul className="products-container">
+                    { loading && <Loader /> }
+                    { error && <ErrorMessage error={error} /> }
+                    { products.map((product: IProduct) => <Product product={product} key={product.id}></Product>) }
+                </ul>
 
-            {modal && <Modal 
-                title="Create new product"
-                onClose={ closeModal }
-            >
-                <CreateProduct onCreate={ closeModal } />
-            </Modal>}
+                {modal && <Modal 
+                    title="Create new product"
+                    onClose={ closeModal }
+                >
+                    <CreateProduct onCreate={ closeModal } />
+                </Modal>}
 
-            <button 
-                className="add-product-button"
-                onClick={ openModal }
-            >
-                +
-            </button>
-        </>
+                <button 
+                    className="add-product-button"
+                    onClick={ openModal }
+                >
+                    +
+                </button>
+            </div>
+        </main>
     );
 }   
 

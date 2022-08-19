@@ -1,11 +1,13 @@
 .footer {
+    background-color: #333;
+}
+
+.footer__conteiner {
     display: flex;
-    padding: 1.2rem;
+    padding: 1em;
 
     justify-content: space-between;
     align-items: center;
-
-    background-color: #333;
 }
 
 .footer__data {
