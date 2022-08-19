@@ -6,7 +6,7 @@ const Product = ({ product }: { product: IProduct }) => {
         <li className='products__item'>
             <h3>{product.name}</h3>
             <img src={product.image} alt={product.name} />
-            {/* Кнопка ддя показа дополнительной инфы */}
+            {/* Кнопка для показа дополнительной инфы */}
             <span>Количество: {product.amount}</span>
             <span>Год выхода: {product.release}</span>
             <span>Производитель: {product.brand}</span>

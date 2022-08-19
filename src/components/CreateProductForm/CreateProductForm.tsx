@@ -1,5 +1,6 @@
 import './CreateProductForm.css';
 import React, { useState } from "react";
+import Button from '../Button/Button';
 
 interface ICreateProductProps {
     onCreate: () => void
@@ -31,12 +32,13 @@ const CreateProductForm = ({ onCreate }: ICreateProductProps) => {
                 onChange={changeHandlder}
             />
 
-            <button
-                type="submit"
-                className="create-form__button"
-            >
-                Create
-            </button>
+            <Button
+                text='Submit'
+                type="primary"
+                small={false}
+                disabled={false}
+                onClick={() => console.log('Product created!')}
+            />
         </form>
     )
 }
