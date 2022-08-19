@@ -1,13 +1,13 @@
 import './Product.css';
 import IProduct from '../../interfaces/IProduct';
 import Button from '../Button/Button';
-// import { useContext } from 'react';
-// import { ModalContext } from '../../context/ModalContext';
-// import Modal from '../Modal/Modal';
 
-const Product = ({ product }: { product: IProduct }) => {
-    // const { modal, openModal, closeModal } = useContext(ModalContext);
+interface IProductProp {
+    product: IProduct,
+    handleAddToCart: (product: IProduct) => void    
+}
 
+const Product = ({ product, handleAddToCart }: IProductProp) => {
     return (
         <li className='products__item product'>
             <h3>{product.name}</h3>
@@ -18,29 +18,16 @@ const Product = ({ product }: { product: IProduct }) => {
                     type="secondary"
                     small={false}
                     disabled={false}
-                    onClick={() => console.log('Create modal for more details!')}
+                    onClick={() => console.log('Create modal for more details')}
                 />
                 <Button
                     text='Buy'
                     type="primary"
                     small={false}
                     disabled={false}
-                    onClick={() => console.log('Add to the cart!')}
+                    onClick={() => handleAddToCart(product)}
                 />
             </div>
-
-            {/* {modal && 
-                <Modal 
-                    title={product.name}
-                    onClose={ closeModal }
-                >
-                    <span>Количество: {product.amount}</span>
-                    <span>Год выхода: {product.release}</span>
-                    <span>Производитель: {product.brand}</span>
-                    <span>Цвет: {product.color}</span>
-                    <span>Камер: {product.cameras}</span>
-                    <span>Цена: {product.price}</span>
-                </Modal>} */}
         </li>
     );
 }
