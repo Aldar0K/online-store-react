@@ -5,7 +5,7 @@ import useProducts from '../hooks/Products';
 import IProduct from "../interfaces/IProduct";
 import { useContext } from "react";
 import Modal from "../components/Modal/Modal";
-import CreateProduct from "../components/CreateProduct";
+import CreateProductForm from "../components/CreateProductForm/CreateProductForm";
 import { ModalContext } from "../context/ModalContext";
 
 const ProductsPage = () => {
@@ -27,7 +27,7 @@ const ProductsPage = () => {
                     title="Create new product"
                     onClose={ closeModal }
                 >
-                    <CreateProduct onCreate={ closeModal } />
+                    <CreateProductForm onCreate={ closeModal } />
                 </Modal>}
 
                 <button 

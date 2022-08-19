@@ -51,25 +51,6 @@ h3 {
 
 /* ===================== */
 
-.create-form {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.create-input {
-    width: 250px;
-    height: 30px;
-
-    font-size: 16px;
-}
-
-.create-button {
-    width: 70px;
-    height: 36px;
-}
-
 .add-product-button {
     display: flex;
     position: fixed;

@@ -1,0 +1,18 @@
+.create-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.create-form__input {
+    width: 25rem;
+    height: 3.5rem;
+
+    font-size: 16px;
+}
+
+.create-form__button {
+    height: 3.5rem;
+    width: 7rem;
+}

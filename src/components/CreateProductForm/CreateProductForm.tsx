@@ -1,10 +1,11 @@
+import './CreateProductForm.css';
 import React, { useState } from "react";
 
 interface ICreateProductProps {
     onCreate: () => void
 }
 
-const CreateProduct = ({ onCreate }: ICreateProductProps) => {
+const CreateProductForm = ({ onCreate }: ICreateProductProps) => {
     const [value, setValue] = useState('');
 
     const submitHandler = (e: React.FormEvent) => {
@@ -24,7 +25,7 @@ const CreateProduct = ({ onCreate }: ICreateProductProps) => {
         >
             <input
                 type="text"
-                className="create-input"
+                className="create-form__input"
                 placeholder="Enter product title..."
                 value={value}
                 onChange={changeHandlder}
@@ -32,7 +33,7 @@ const CreateProduct = ({ onCreate }: ICreateProductProps) => {
 
             <button
                 type="submit"
-                className="create-button"
+                className="create-form__button"
             >
                 Create
             </button>
@@ -40,4 +41,4 @@ const CreateProduct = ({ onCreate }: ICreateProductProps) => {
     )
 }
 
-export default CreateProduct;
+export default CreateProductForm;
