@@ -299,7 +299,7 @@ const getProducts = (): Promise<IProduct[]> => {
             } else {
                 reject(new Error('Network Error'));
             }
-        }, 1000);
+        }, 500);
     });
 };
 
