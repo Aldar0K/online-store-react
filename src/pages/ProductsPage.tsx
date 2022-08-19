@@ -16,13 +16,15 @@ const ProductsPage = () => {
         <main className="main">
             <div className="conteiner main__conteiner">
                 <h2>Products</h2>
-                <ul className="products-container">
-                    { loading && <Loader /> }
-                    { error && <ErrorMessage error={error} /> }
-                    { products
-                        .map((product: IProduct) => 
-                        <Product product={product} key={product.id}></Product>) }
-                </ul>
+                <div className="main__products products">
+                    <ul className="products__items">
+                        { loading && <Loader /> }
+                        { error && <ErrorMessage error={error} /> }
+                        { products
+                            .map((product: IProduct) => 
+                            <Product product={product} key={product.id}></Product>) }
+                    </ul>   
+                </div>
 
                 {modal && 
                 <Modal 
