@@ -1,5 +1,5 @@
-import Loader from "../components/Loader";
-import ErrorMessage from '../components/ErrorMessage';
+import Loader from "../components/Loader/Loader";
+import ErrorMessage from '../components/Error/ErrorMessage';
 import Product from "../components/Product";
 import useProducts from '../hooks/Products';
 import IProduct from "../interfaces/IProduct";

@@ -1,10 +1,12 @@
+import './ErrorMessage.css';
+
 interface ErrorMessageProps {
     error: string
 }
 
 const ErrorMessage = ({ error }: ErrorMessageProps) => {
     return (
-        <p className="products-error">{ error }</p>
+        <h3 className="products-error">{ error }</h3>
     );
 }
 
