@@ -12,6 +12,7 @@ const Product = ({ product, handleAddToCart }: IProductProp) => {
         <li className='products__item product'>
             <h3>{product.name}</h3>
             <img src={product.image} alt={product.name} />
+            <span>Цена: {product.price}</span>
             <div className='product__buttons'>
                 <Button
                     text='More'

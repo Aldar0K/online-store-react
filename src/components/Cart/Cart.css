@@ -1,19 +1,37 @@
-.main__cart {
+.cart {
     display: flex;
     padding: 1em;
 
-    gap: 1rem;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 
     background-color: white;
 }
 
-.main__cart img {
+.cart__icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.cart__image {
     width: 6rem;
 }
 
-.main__cart span {
+.cart__amount {
     font-size: 4rem;
     color: #fc8507;
+}
+
+.cart__items {
+    flex: 1 1 69%;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
 }

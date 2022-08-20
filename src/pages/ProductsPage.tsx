@@ -16,10 +16,16 @@ const ProductsPage = () => {
     const { products, error, loading } = useProducts();
     const { modal, openModal, closeModal } = useContext(ModalContext);
 
+    const [cartIsOpen, setCartIsOpen] = useState(false);
     const [cartItems, setCartItems] = useState([] as IProduct[]);
+
     const handleAddToCart = (product: IProduct) => {
+        if (!cartItems.includes(product))
         setCartItems(cartItems ? [...cartItems, product] : [product]);
-        console.log(cartItems);
+    }
+
+    const handleOnCartClick = () => {
+        setCartIsOpen(!cartIsOpen);
     }
 
     return (
@@ -29,9 +35,13 @@ const ProductsPage = () => {
             </Header>
             <main className="main">
                 <div className="conteiner main__conteiner">
-                    <Cart amount={cartItems.length} />
+                    <Cart
+                        amount={cartItems.length}
+                        isOpen={cartIsOpen}
+                        itemsInCart={cartItems}
+                        onCartClick={handleOnCartClick} />
                     <div className="main__products products">
-                        <ul className="products__items">
+                        { !cartIsOpen && <ul className="products__items">
                             { loading && <Loader /> }
                             { error && <ErrorMessage error={error} /> }
                             { products
@@ -41,7 +51,7 @@ const ProductsPage = () => {
                                     key={product.id}
                                     handleAddToCart={handleAddToCart}
                                 />) }
-                        </ul>   
+                        </ul> }   
                     </div>
 
                     {modal && 
