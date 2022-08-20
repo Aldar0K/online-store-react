@@ -53,6 +53,7 @@ const ProductsPage = () => {
                                             product={product}
                                             key={product.id}
                                             handleAddToCart={handleAddToCart}
+                                            inCart={cartItems.includes(product)}
                                         />) 
                                     }
                                 </ul> 

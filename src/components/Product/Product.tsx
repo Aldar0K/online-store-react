@@ -4,10 +4,11 @@ import Button from '../Button/Button';
 
 interface IProductProp {
     product: IProduct,
-    handleAddToCart: (product: IProduct) => void    
+    handleAddToCart: (product: IProduct) => void,
+    inCart: boolean
 }
 
-const Product = ({ product, handleAddToCart }: IProductProp) => {
+const Product = ({ product, handleAddToCart, inCart }: IProductProp) => {
     return (
         <li className='products__item product'>
             <h3>{product.name}</h3>
@@ -16,16 +17,16 @@ const Product = ({ product, handleAddToCart }: IProductProp) => {
             <div className='product__buttons'>
                 <Button
                     text='More'
-                    type="secondary"
+                    type="primary"
                     small={false}
                     disabled={false}
                     onClick={() => console.log('Create modal for more details')}
                 />
                 <Button
                     text='Buy'
-                    type="primary"
+                    type={!inCart ? "primary" : 'secondary'}
                     small={false}
-                    disabled={false}
+                    disabled={inCart}
                     onClick={() => {handleAddToCart(product)}}
                 />
             </div>
