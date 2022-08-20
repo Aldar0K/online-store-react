@@ -3,7 +3,7 @@ import getProducts from "../data/Products.DB";
 import IProduct from "../interfaces/IProduct";
 
 const useProducts = (): { products: IProduct[], error: string, loading: boolean } => {
-    const [products, setProducts] = useState<IProduct[]>([]);
+    const [products, setProducts] = useState([] as IProduct[]);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
 

@@ -1,7 +1,7 @@
 import Loader from "../components/Loader/Loader";
 import ErrorMessage from '../components/Error/ErrorMessage';
 import Product from "../components/Product/Product";
-import useProducts from '../hooks/Products';
+import useProducts from '../hooks/useProducts';
 import IProduct from "../interfaces/IProduct";
 import { useContext, useState } from "react";
 import Modal from "../components/Modal/Modal";
