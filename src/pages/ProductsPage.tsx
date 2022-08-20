@@ -39,28 +39,34 @@ const ProductsPage = () => {
                         amount={cartItems.length}
                         isOpen={cartIsOpen}
                         itemsInCart={cartItems}
-                        onCartClick={handleOnCartClick} />
-                    <div className="main__products products">
-                        { !cartIsOpen && <ul className="products__items">
-                            { loading && <Loader /> }
-                            { error && <ErrorMessage error={error} /> }
-                            { products
-                                .map((product: IProduct) => 
-                                <Product
-                                    product={product}
-                                    key={product.id}
-                                    handleAddToCart={handleAddToCart}
-                                />) }
-                        </ul> }   
-                    </div>
+                        onCartClick={handleOnCartClick}
+                    />
+
+                    {!cartIsOpen && 
+                        <div className="main__products products">
+                                <ul className="products__items">
+                                    { loading && <Loader /> }
+                                    { error && <ErrorMessage error={error} /> }
+                                    { products
+                                        .map((product: IProduct) => 
+                                        <Product
+                                            product={product}
+                                            key={product.id}
+                                            handleAddToCart={handleAddToCart}
+                                        />) 
+                                    }
+                                </ul> 
+                        </div>
+                    }   
 
                     {modal && 
-                    <Modal 
-                        title="Create new product"
-                        onClose={ closeModal }
-                    >
-                        <CreateProductForm onCreate={ closeModal } />
-                    </Modal>}
+                        <Modal 
+                            title="Create new product"
+                            onClose={ closeModal }
+                        >
+                            <CreateProductForm onCreate={ closeModal } />
+                        </Modal>
+                    }
 
                     <button 
                         className="add-product-button"

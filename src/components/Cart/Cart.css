@@ -5,6 +5,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 1rem;
 
     background-color: white;
 }
@@ -24,6 +25,15 @@
 .cart__amount {
     font-size: 4rem;
     color: #fc8507;
+}
+
+.cart__container {
+    display: flex;
+
+    flex-direction: column;
+    align-items: center;
+    justify-self: center;
+    gap: 1rem;
 }
 
 .cart__items {

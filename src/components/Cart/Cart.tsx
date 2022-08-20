@@ -31,14 +31,20 @@ const Cart = ({
                     onClick={onCartClick}
                 />
             </div>
-            <div className='cart__items'>
-                { isOpen && itemsInCart
-                    .map((product: IProduct) => 
-                    <CartProduct
-                        product={product}
-                        key={product.id}
-                    />) }
-            </div>
+
+            {isOpen &&
+                <div className='cart__container'>
+                    <h2>Products in cart:</h2>
+                    <ul className="cart__items">
+                        { itemsInCart.map((product: IProduct) => 
+                            <CartProduct
+                                product={product}
+                                key={product.id}
+                            />)
+                        }
+                    </ul>
+                </div>
+            }
         </div>
     );
 }
