@@ -13,12 +13,12 @@
     background-color: white;
 }
 
-.products__item img {
+.product__image {
     padding: .5rem;
     max-width: 100%;
 }
 
-.products__item_active::after {
+.product_active::after {
     position: absolute;
     right: 1rem;
     bottom: 1rem;

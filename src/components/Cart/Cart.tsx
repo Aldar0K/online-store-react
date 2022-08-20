@@ -34,7 +34,6 @@ const Cart = ({
 
             {isOpen &&
                 <div className='cart__container'>
-                    <h2>Products in cart:</h2>
                     <ul className="cart__items">
                         { itemsInCart.map((product: IProduct) => 
                             <CartProduct

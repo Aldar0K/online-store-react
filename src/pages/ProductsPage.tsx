@@ -20,8 +20,13 @@ const ProductsPage = () => {
     const [cartItems, setCartItems] = useState([] as IProduct[]);
 
     const handleAddToCart = (product: IProduct) => {
-        if (!cartItems.includes(product))
-        setCartItems(cartItems ? [...cartItems, product] : [product]);
+        if (!cartItems.includes(product)) {
+            setCartItems([...cartItems].concat(product));
+        } else {
+            setCartItems([...cartItems].slice(0, cartItems.indexOf(product))
+                .concat([...cartItems].slice(cartItems.indexOf(product) + 1))
+            );
+        }
     }
 
     const handleOnCartClick = () => {

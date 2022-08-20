@@ -10,9 +10,9 @@ interface IProductProp {
 
 const Product = ({ product, handleAddToCart, inCart }: IProductProp) => {
     return (
-        <li className='products__item product'>
+        <li className={'products__item product' + (inCart ? ' product_active' : '')}>
             <h3>{product.name}</h3>
-            <img src={product.image} alt={product.name} />
+            <img className='product__image' src={product.image} alt={product.name} />
             <span>Цена: {product.price}</span>
             <div className='product__buttons'>
                 <Button
@@ -20,13 +20,13 @@ const Product = ({ product, handleAddToCart, inCart }: IProductProp) => {
                     type="primary"
                     small={false}
                     disabled={false}
-                    onClick={() => console.log('Create modal for more details')}
+                    onClick={() => console.log('More details')}
                 />
                 <Button
-                    text='Buy'
+                    text={!inCart ? "Buy" : 'Remove'}
                     type={!inCart ? "primary" : 'secondary'}
                     small={false}
-                    disabled={inCart}
+                    disabled={false}
                     onClick={() => {handleAddToCart(product)}}
                 />
             </div>
