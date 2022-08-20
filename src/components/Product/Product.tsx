@@ -25,7 +25,7 @@ const Product = ({ product, handleAddToCart }: IProductProp) => {
                     type="primary"
                     small={false}
                     disabled={false}
-                    onClick={() => handleAddToCart(product)}
+                    onClick={() => {handleAddToCart(product)}}
                 />
             </div>
         </li>

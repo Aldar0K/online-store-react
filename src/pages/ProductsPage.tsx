@@ -11,17 +11,15 @@ import Header from "../components/Header/Header";
 import Navigation from "../components/Navigation/Navigation";
 import Footer from "../components/Footer/Footer";
 import Cart from "../components/Cart/Cart";
-import Button from "../components/Button/Button";
 
 const ProductsPage = () => {
     const { products, error, loading } = useProducts();
     const { modal, openModal, closeModal } = useContext(ModalContext);
 
-    const [amount, setAmount] = useState(0);
+    const [cartItems, setCartItems] = useState([] as IProduct[]);
     const handleAddToCart = (product: IProduct) => {
-        console.log(product);
-
-        setAmount(prev => prev + 1);
+        setCartItems(cartItems ? [...cartItems, product] : [product]);
+        console.log(cartItems);
     }
 
     return (
@@ -31,7 +29,7 @@ const ProductsPage = () => {
             </Header>
             <main className="main">
                 <div className="conteiner main__conteiner">
-                    <Cart amount={amount} />
+                    <Cart amount={cartItems.length} />
                     <div className="main__products products">
                         <ul className="products__items">
                             { loading && <Loader /> }

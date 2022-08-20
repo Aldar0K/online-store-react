@@ -8,6 +8,7 @@ html {
 }
 
 body {
+    font-family: 'Roboto', 'Times', sans-serif;
     font-size: 1.6rem;
     background-color: #f6f6f6;
 }
@@ -67,7 +68,7 @@ h3 {
     right: 3rem;
     bottom: 3rem;
 
-    font-size: 30px;
+    font-size: 2.5rem;
     border: none;
     border-radius: 100%;
     color: white;
