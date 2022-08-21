@@ -5,7 +5,7 @@ import useProducts from '../hooks/useProducts';
 import IProduct from "../interfaces/IProduct";
 import { useContext, useState } from "react";
 import Modal from "../components/Modal/Modal";
-import CreateProductForm from "../components/CreateProductForm/CreateProductForm";
+import CreateProduct from "../components/CreateProduct/CreateProduct";
 import { ModalContext } from "../context/ModalContext";
 import Header from "../components/Header/Header";
 import Navigation from "../components/Navigation/Navigation";
@@ -66,19 +66,18 @@ const ProductsPage = () => {
                     }   
 
                     {modal && 
-                        <Modal 
-                            title="Create new product"
-                            onClose={ closeModal }
+                        <Modal
+                            onClose={closeModal}
                         >
-                            <CreateProductForm onCreate={ closeModal } />
-                            {/* <*Другой компонент* onCreate={ closeModal } /> */}
+                            <CreateProduct onCreate={closeModal} />
+                            {/* <*Другой компонент* *Другое событие*={ closeModal } /> */}
                             {/* Можно создать состояние currentModel */}
                         </Modal>
                     }
 
                     <button 
                         className="add-product-button"
-                        onClick={ openModal }
+                        onClick={openModal}
                     >
                         +
                     </button>
