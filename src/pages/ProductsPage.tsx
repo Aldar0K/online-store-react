@@ -71,6 +71,8 @@ const ProductsPage = () => {
                             onClose={ closeModal }
                         >
                             <CreateProductForm onCreate={ closeModal } />
+                            {/* <*Другой компонент* onCreate={ closeModal } /> */}
+                            {/* Можно создать состояние currentModel */}
                         </Modal>
                     }
 

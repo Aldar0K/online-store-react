@@ -1,6 +1,7 @@
 import './CreateProductForm.css';
 import React, { useState } from "react";
 import Button from '../Button/Button';
+import ErrorMessage from '../Error/ErrorMessage';
 
 interface ICreateProductProps {
     onCreate: () => void
@@ -8,9 +9,15 @@ interface ICreateProductProps {
 
 const CreateProductForm = ({ onCreate }: ICreateProductProps) => {
     const [value, setValue] = useState('');
+    const [error, setError] = useState('');
 
     const submitHandler = (e: React.FormEvent) => {
         e.preventDefault();
+
+        if (value.trim().length === 0) {
+            setError('Please enter valid title');
+            return;
+        }
 
         onCreate();
     }
@@ -31,6 +38,8 @@ const CreateProductForm = ({ onCreate }: ICreateProductProps) => {
                 value={value}
                 onChange={changeHandlder}
             />
+
+            {error && <ErrorMessage error={error} />}
 
             <Button
                 text='Submit'
