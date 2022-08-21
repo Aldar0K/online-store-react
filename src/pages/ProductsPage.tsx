@@ -11,15 +11,34 @@ import Header from "../components/Header/Header";
 import Navigation from "../components/Navigation/Navigation";
 import Footer from "../components/Footer/Footer";
 import Cart from "../components/Cart/Cart";
+import ProductInfo from "../components/ProductInfo/ProductInfo";
 
 const ProductsPage = () => {
     const { products, error, loading } = useProducts();
-    const { modal, openModal, closeModal } = useContext(ModalContext);
 
-    const [cartIsOpen, setCartIsOpen] = useState(false);
-    const [cartItems, setCartItems] = useState([] as IProduct[]);
+    const { modal, openModal, closeModal } = useContext(ModalContext);
+    const [ createProductModal, setCreateProductModal ] = useState(false);
+    const [ detailsModal, setdetailsModal ] = useState(false);
+
+    const [ currentProduct, setCurrentProduct ] = useState<IProduct>(products[0]);
+    
+    const handleShowMore = (product: IProduct) => {
+        setCurrentProduct(product);
+        setdetailsModal(true);
+        openModal();
+    }
+
+    const [ cartIsOpen, setCartIsOpen ] = useState(false);
+    const [ cartIsFull, setCartIsFull ] = useState(false);
+    const [ cartItems, setCartItems ] = useState([] as IProduct[]);
 
     const handleAddToCart = (product: IProduct) => {
+        if (cartItems.length >= 5 && !cartItems.includes(product)) {
+            setCartIsFull(true);
+            openModal(); 
+            return;
+        }
+
         if (!cartItems.includes(product)) {
             setCartItems([...cartItems].concat(product));
         } else {
@@ -31,6 +50,11 @@ const ProductsPage = () => {
 
     const handleOnCartClick = () => {
         setCartIsOpen(!cartIsOpen);
+    }
+
+    const handleAddProductButton = () => {
+        setCreateProductModal(true);
+        openModal(); 
     }
 
     return (
@@ -58,6 +82,7 @@ const ProductsPage = () => {
                                             product={product}
                                             key={product.id}
                                             handleAddToCart={handleAddToCart}
+                                            handleShowMore={handleShowMore}
                                             inCart={cartItems.includes(product)}
                                         />) 
                                     }
@@ -65,9 +90,12 @@ const ProductsPage = () => {
                         </div>
                     }   
 
-                    {modal && 
+                    {modal && createProductModal && 
                         <Modal
-                            onClose={closeModal}
+                            onClose={() => {
+                                closeModal(); 
+                                setCreateProductModal(false)
+                            }}
                         >
                             <CreateProduct onCreate={closeModal} />
                             {/* <*Другой компонент* *Другое событие*={ closeModal } /> */}
@@ -75,9 +103,32 @@ const ProductsPage = () => {
                         </Modal>
                     }
 
-                    <button 
+                    {modal && detailsModal &&
+                        <Modal
+                            onClose={() => {
+                                closeModal(); 
+                                setdetailsModal(false);
+                            }}
+                        >
+                            <ProductInfo product={currentProduct} />
+                        </Modal>
+                    }
+
+                    {modal && cartIsFull &&
+                        <Modal
+                            onClose={() => {
+                                closeModal();
+                                setCartIsFull(false);
+                            }}
+                        >
+                            <ErrorMessage error={"Sorry. The cart is full"} />
+                        </Modal>
+                    }
+
+                    <button
+                        disabled={modal}
                         className="add-product-button"
-                        onClick={openModal}
+                        onClick={handleAddProductButton}
                     >
                         +
                     </button>
