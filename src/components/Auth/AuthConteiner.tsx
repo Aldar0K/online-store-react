@@ -22,7 +22,7 @@ const AuthConteiner = ({ isLogIn, onAuthModalOpen }: AuthConteinerProps) => {
                     type='primary'
                     small={false}
                     disabled={false}
-                    onClick={() => {}}
+                    onClick={onAuthModalOpen}
                 />
             }
         </div>

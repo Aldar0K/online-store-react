@@ -1,9 +1,10 @@
 import './styles/reset.css';
 import './styles/global.css';
 import ReactDOM from 'react-dom/client';
-import App from './App';
-import { ModalState } from './context/ModalContext';
 import { BrowserRouter } from 'react-router-dom';
+import { ModalState } from './context/ModalContext';
+import { AuthState } from './context/AuthContext';
+import App from './App';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -12,7 +13,9 @@ const root = ReactDOM.createRoot(
 root.render(
   <BrowserRouter>
     <ModalState>
-      <App />
+      <AuthState>
+        <App />
+      </AuthState>
     </ModalState>
   </BrowserRouter>
 );

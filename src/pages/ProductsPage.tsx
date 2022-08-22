@@ -14,14 +14,20 @@ import Cart from "../components/Cart/Cart";
 import ProductInfo from "../components/ProductInfo/ProductInfo";
 import AuthConteiner from "../components/Auth/AuthConteiner";
 import AuthForm from "../components/Auth/AuthForm";
+import { AuthContext } from "../context/AuthContext";
 
 const ProductsPage = () => {
+    // Custom hook for products fetching
+
     const { products, error, loading } = useProducts();
 
-    const { modal, openModal, closeModal } = useContext(ModalContext);
-    const [ createProductModal, setCreateProductModal ] = useState(false);
-    const [ detailsModal, setdetailsModal ] = useState(false);
+    // Modal
 
+    const { modal, openModal, closeModal } = useContext(ModalContext);
+    
+    // Show more details
+
+    const [ detailsModal, setdetailsModal ] = useState(false);
     const [ currentProduct, setCurrentProduct ] = useState<IProduct>(products[0]);
     
     const handleShowMore = (product: IProduct) => {
@@ -29,6 +35,8 @@ const ProductsPage = () => {
         setdetailsModal(true);
         openModal();
     }
+
+    // Cart
 
     const [ cartIsOpen, setCartIsOpen ] = useState(false);
     const [ cartIsFull, setCartIsFull ] = useState(false);
@@ -54,13 +62,19 @@ const ProductsPage = () => {
         setCartIsOpen(!cartIsOpen);
     }
 
+    // Add new product
+
+    const [ createProductModal, setCreateProductModal ] = useState(false);
+
     const handleAddProductButton = () => {
         setCreateProductModal(true);
         openModal(); 
     }
 
+    // Authorization
+
     const [ authModal, setAuthModal ] = useState(false);
-    const [ isLogIn, setIsLogIn ] = useState(false);
+    const { isLogIn, authorize, disauthorize } = useContext(AuthContext);
 
     const handleAuthModalOpen = () => {
         setAuthModal(true);
@@ -71,7 +85,10 @@ const ProductsPage = () => {
         <div className='wrapper'>
             <Header>
                 <Navigation />
-                <AuthConteiner isLogIn={isLogIn} onAuthModalOpen={handleAuthModalOpen} />
+                <AuthConteiner
+                    isLogIn={isLogIn}
+                    onAuthModalOpen={handleAuthModalOpen}
+                />
             </Header>
             <main className="main">
                 <div className="conteiner main__conteiner">
@@ -112,6 +129,17 @@ const ProductsPage = () => {
                         </Modal>
                     }
 
+                    {modal && authModal &&
+                        <Modal
+                            onClose={() => {
+                                closeModal();
+                                setAuthModal(false);
+                            }}
+                        >
+                            <AuthForm onLogIn={closeModal} />
+                        </Modal>
+                    }
+
                     {modal && detailsModal &&
                         <Modal
                             onClose={() => {
@@ -131,17 +159,6 @@ const ProductsPage = () => {
                             }}
                         >
                             <ErrorMessage error={"Sorry. The cart is full"} />
-                        </Modal>
-                    }
-
-                    {modal && authModal &&
-                        <Modal
-                            onClose={() => {
-                                closeModal();
-                                setAuthModal(false);
-                            }}
-                        >
-                            <AuthForm />
                         </Modal>
                     }
 
