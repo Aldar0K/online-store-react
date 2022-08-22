@@ -12,6 +12,8 @@ import Navigation from "../components/Navigation/Navigation";
 import Footer from "../components/Footer/Footer";
 import Cart from "../components/Cart/Cart";
 import ProductInfo from "../components/ProductInfo/ProductInfo";
+import AuthConteiner from "../components/Auth/AuthConteiner";
+import AuthForm from "../components/Auth/AuthForm";
 
 const ProductsPage = () => {
     const { products, error, loading } = useProducts();
@@ -57,10 +59,19 @@ const ProductsPage = () => {
         openModal(); 
     }
 
+    const [ authModal, setAuthModal ] = useState(false);
+    const [ isLogIn, setIsLogIn ] = useState(false);
+
+    const handleAuthModalOpen = () => {
+        setAuthModal(true);
+        openModal();
+    }
+
     return (
         <div className='wrapper'>
             <Header>
                 <Navigation />
+                <AuthConteiner isLogIn={isLogIn} onAuthModalOpen={handleAuthModalOpen} />
             </Header>
             <main className="main">
                 <div className="conteiner main__conteiner">
@@ -98,8 +109,6 @@ const ProductsPage = () => {
                             }}
                         >
                             <CreateProduct onCreate={closeModal} />
-                            {/* <*Другой компонент* *Другое событие*={ closeModal } /> */}
-                            {/* Можно создать состояние currentModel */}
                         </Modal>
                     }
 
@@ -122,6 +131,17 @@ const ProductsPage = () => {
                             }}
                         >
                             <ErrorMessage error={"Sorry. The cart is full"} />
+                        </Modal>
+                    }
+
+                    {modal && authModal &&
+                        <Modal
+                            onClose={() => {
+                                closeModal();
+                                setAuthModal(false);
+                            }}
+                        >
+                            <AuthForm />
                         </Modal>
                     }
 

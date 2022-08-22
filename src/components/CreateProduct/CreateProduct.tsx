@@ -28,7 +28,7 @@ const CreateProduct = ({ onCreate }: ICreateProductProps) => {
 
     return (
         <>
-            <h1>Create new product</h1>
+            <h2>Create new product</h2>
             <form
                 className="create-form"
                 onSubmit={submitHandler}

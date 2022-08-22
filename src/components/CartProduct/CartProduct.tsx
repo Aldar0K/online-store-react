@@ -8,7 +8,7 @@ interface ICartProductProp {
 const CartProduct = ({ product }: ICartProductProp) => {
     return (
         <li className='products__item product'>
-            <h3>{product.name}</h3>
+            <h2>{product.name}</h2>
             <img src={product.image} alt={product.name} />
             <span>Цена: {product.price}</span>
         </li>

@@ -18,7 +18,7 @@ const Product = ({ product, handleAddToCart, inCart, handleShowMore }: IProductP
             <div className='product__buttons'>
                 <Button
                     text='More'
-                    type="primary"
+                    type="secondary"
                     small={false}
                     disabled={false}
                     onClick={() => {handleShowMore(product)}}

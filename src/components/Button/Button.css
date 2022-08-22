@@ -6,6 +6,7 @@
 
     font-size: 1.6rem;
     border-radius: .5rem;
+    border: 1px solid white;
 
     transition: .3s;
     cursor: pointer;
@@ -13,12 +14,12 @@
 
 .button_big {
     height: 3.5rem;
-    width: 7rem;
+    width: 7.5rem;
 }
 
 .button_small {
     height: 3rem;
-    width: 5.5rem;
+    width: 6rem;
 }
 
 .button_primary {

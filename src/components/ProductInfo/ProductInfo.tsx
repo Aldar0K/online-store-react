@@ -8,7 +8,7 @@ interface IProductInfoProp {
 const ProductInfo = ({ product }: IProductInfoProp) => {
     return (
         <>
-            <h1>{product.name}</h1>
+            <h2>{product.name}</h2>
             <img className='product__image' src={product.image} alt={product.name} />
             <span>Количество: {product.amount}</span>
             <span>Год выхода: {product.release}</span>
